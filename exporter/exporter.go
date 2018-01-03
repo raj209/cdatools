@@ -100,7 +100,8 @@ func generateCat1(patient []byte, startDate int64, endDate int64, qrdaVersion st
 	p := &models.Record{}
 
 	json.Unmarshal(patient, p)
-
+	fmt.Println(p)
+	
 	if qrdaVersion == "" {
 		qrdaVersion = "r3"
 	}
