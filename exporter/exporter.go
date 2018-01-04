@@ -88,12 +88,11 @@ func GenerateCat1(patient []byte, startDate int64, endDate int64, qrdaVersion st
 	var failed bool
 	var errmsg string
 	fmt.Println("Im from cdatools")
-	fmt.Println(startDate)
-	fmt.Println(endDate)
-	fmt.Println(qrdaVersion)
-	fmt.Println(cmsCompatibility)
-	
+
 	result := generateCat1(patient, startDate, endDate, qrdaVersion, cmsCompatibility, &failed, &errmsg)
+	fmt.Println("Result")
+	fmt.Println(result)
+	result = "Dumb Test"
 	if failed {
 		return "Export Failed: " + errmsg
 	}
@@ -106,7 +105,6 @@ func generateCat1(patient []byte, startDate int64, endDate int64, qrdaVersion st
 	p := &models.Record{}
 
 	json.Unmarshal(patient, p)
-	fmt.Println(p)
 
 
 	if qrdaVersion == "" {
